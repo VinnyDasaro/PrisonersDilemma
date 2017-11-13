@@ -4,7 +4,8 @@
 #     strategy_name: a string
 #     strategy_description: a string
 #     move: A function that returns 'c' or 'b'
-####
+####Jameson & Luca
+
 
 team_name = 'Lameson' # Only 10 chars displayed.
 strategy_name = 'FriendMaker'
@@ -51,6 +52,13 @@ def move(my_history, their_history, my_score, their_score):
     
     if (len(their_history) == 9):
         return 'b'
+    
+    if (len(their_history) > 9):
+        return 'b'
+    
+    if 'ccc' in (their_history[len(their_history)-3]) and (len(their_history) > 9):
+        return 'c'
+
     
     
     
