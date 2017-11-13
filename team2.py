@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ####
 # Each team's file must define four tokens:
 #     team_name: a string
@@ -6,10 +7,10 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
+team_name = 'Abby&Matt' # Only 10 chars displayed.
 strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
-    
+strategy_description = 'Alway betray except for the first round'
+
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
@@ -23,11 +24,23 @@ def move(my_history, their_history, my_score, their_score):
     # The first round between these two players is my_history[0] and their_history[0].
     # The most recent round is my_history[-1] and their_history[-1].
     
+    #FIRST GUESS
+    if (len(my_history) == '') and (len(their_history) == ''):
+	return 'c'
+    else:
+        return 'b'
+        
+    if (my_history >= 1) and len(their_history[1]) == 'c':
+	return 'b'
+    else:
+        return 'c'
+        
+
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
+    my_history[0] == my_history
+    their_history[0] == their_history
     
-    return 'c'
-
     
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
