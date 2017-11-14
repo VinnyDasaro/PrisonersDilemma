@@ -7,10 +7,40 @@
 ####
 
 team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+strategy_name = 'Reverse Psychology'
+strategy_description = 'If b and b then c, if b and c then b, if c and b then b, if c and c then b'
     
 def move(my_history, their_history, my_score, their_score):
+    if (len(my_history) >= 5):
+        if((my_history[len(my_history)-5:len(my_history)] == 'cbcbb') and ((their_history[len(their_history)-5:len(their_history)] =='bbbbb') or (their_history[len(their_history)-5:len(their_history)] =='bbbbc'))):
+            return 'b' 
+        elif ((my_history[len(my_history)-4:len(my_history)] == 'cbcb') and (their_history[len(their_history)-4:len(their_history)] =='bbbb')):
+            return 'b'
+        elif (their_history[len(their_history)-4:len(their_history)] == 'cbcb'):
+            return 'b'
+        elif (my_history[len(my_history)-1] == 'b' and their_history[len(their_history)-1] == 'b'):
+            return 'c'
+        elif ((my_history[len(my_history)-2:len(my_history)] == 'cc') and (their_history[len(their_history)-2:len(their_history)] == 'cc')):
+            return 'b'
+        elif ((my_history[len(my_history)-2:len(my_history)] == 'cc') and (their_history[len(their_history)-2:len(their_history)] == 'cb')):
+            return 'c'
+        elif (my_history[len(my_history)-1] == 'c' and their_history[len(their_history)-1] == 'c'):
+            return 'c'
+        else:
+           return 'b'
+    if len(my_history) == 0:
+        return 'c'
+    if len(my_history) == 1:
+        return 'c'
+    if len(my_history) == 2:
+        return 'b'
+    if len(my_history) == 3:
+        return 'b'
+    if len(my_history) == 4:
+        return 'b'
+  
+
+    
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
     
